@@ -741,17 +741,23 @@ exports.carts_controller=(req,res,next)=>{
 	let KmId=req.body.ProductId;
 	let KmPrice=req.body.price;
 	let KmTitle=req.body.Title;
+  let loggedIn=req.session.loggedIn;
+  if (loggedIn) {
+    Cart.cart(KmId,KmPrice,KmTitle)
+  .then(resolve=>{
+    setTimeout(()=>{
+      res.redirect("/Carts");       
+    },50)
+  }).catch(err=>{
+    console.log(err);
+      res.end();
 
-	Cart.cart(KmId,KmPrice,KmTitle)
-	.then(resolve=>{
-		setTimeout(()=>{
-			res.redirect("/Carts");				
-		},50)
-	}).catch(err=>{
-		console.log(err);
-			res.end();
-
-	});
+    });  
+  }
+  else{
+    res.redirect('/');
+  }
+	
 }
 exports.SignUp_controller=(req,res,next)=>{
 	res.render("signup");
