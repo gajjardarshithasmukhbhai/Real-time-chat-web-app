@@ -55,5 +55,53 @@ I give security features like
 ->collobrative code editing
 ->live text and sports features
 ->Drag and Drop features give to the user
+```
+
+## socket programming is started
+
+**important things**
+```text
+-->	socket programming is occur in both side in client and server so user connection in both side
+-->	In socket programming the socket Id is imporatnt because without socket id you unable to fetch Data through user
+-->	In socket programming the socket Id is always be changed so you refresh so that time it change because it real time @pp
+-->	In client side cdn of socket is important
 
 ```
+## socket programming steps:
+
+**step 1:**
+import the socket the package through require like ex.
+var socket=require('socket.io');
+set
+**step 2:**
+in socket the server side set-up is imporatant thing
+so setup the server so you set-up just like that
+```javascript
+var server=app.listen(4040,()=>{
+	console.log('i am connected');
+});
+var io=socket(server);
+```
+**Note:**
+when the server side setup the socket so that time server port number is important to set-up all of thing just like above 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
