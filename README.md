@@ -70,10 +70,11 @@ I give security features like
 ## socket programming steps:
 
 **step 1:**
-``javascript
 import the socketIo the package through require like ex.
+``javascript
 var socket=require('socket.io');
 ``
+<br>
 **step 2:**
 in socket the server side set-up is imporatant thing
 so setup the server so you set-up just like that
