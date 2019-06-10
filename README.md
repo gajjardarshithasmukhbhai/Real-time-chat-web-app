@@ -23,7 +23,7 @@ I give security features like
 ->real time chat system
 ```
 ## web socket
----
+
 ```text
 ->communication  between client and server
 ->real time data-flow
@@ -33,7 +33,7 @@ I give security features like
 ![Drag Racing](https://www.iro.umontreal.ca/~pift1025/bigjava/Ch24/images/sockets.png)
 
 ## application of web-socket
----
+
 ```text
 ->real time to-do web app or android app
 ->real time data-visualization
