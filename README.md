@@ -84,6 +84,13 @@ var server=app.listen(4040,()=>{
 });
 var io=socket(server);
 ```
+**step 3:**
+in client side we apply two js file one is socket setup through cloudflare 
+and another one is my custome code base in socket folder
+```html
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
+<script type="text/javascript" src="/socket/socket.js"></script>
+```
 **Note:**
 when the server side setup the socket so that time server port number is important to set-up all of thing just like above 
 
