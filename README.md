@@ -89,6 +89,10 @@ io.on('connection',(socket)=>{
 /* basically above code te connection estalish thyu hoy to acknowlwdgement mate te thase*/
 ```
 **step 3:**
+i set-up socket in client side just like this
+```javascript
+var socket=io.connect('http://localhost:4040/chat');
+```
 in client side we apply two js file one is socket setup through cloudflare 
 and another one is my custome code base in socket folder
 ```html
