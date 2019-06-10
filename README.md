@@ -22,3 +22,22 @@ I give security features like
 ->Encrypted protection system
 ->real time chat system
 ```
+## web socket
+---
+```text
+->communication  between client and server
+->real time data-flow
+->data flows both ways
+->web-socket is always be open so client to server data send very real time
+```
+![Drag Racing](https://www.iro.umontreal.ca/~pift1025/bigjava/Ch24/images/sockets.png)
+
+## application of web-socket
+---
+```text
+->real time to-do web app or android app
+->real time data-visualization
+->collobrative code editing
+->live text and sports features
+
+```
