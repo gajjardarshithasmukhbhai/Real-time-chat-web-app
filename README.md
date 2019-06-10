@@ -71,9 +71,9 @@ I give security features like
 
 **step 1:**
 import the socketIo the package through require like ex.
-``javascript
+```javascript
 var socket=require('socket.io');
-``
+```
 <br>
 **step 2:**
 in socket the server side set-up is imporatant thing
