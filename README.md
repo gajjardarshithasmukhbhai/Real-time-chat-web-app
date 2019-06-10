@@ -1,4 +1,4 @@
-# real time chat web app
+# Real time chat web app
 ## MVC architecture and socket programming
 ```text
 in this webapp is fully bashed on MVC(model,view,controller base web-app) 
@@ -12,6 +12,9 @@ step:1
 step:2
 	localhost:5060
 ```
+## Packages
+
+
 **in this web-app i learn lot**
 ---
 ```
