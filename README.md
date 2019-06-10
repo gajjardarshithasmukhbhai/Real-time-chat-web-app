@@ -83,6 +83,10 @@ var server=app.listen(4040,()=>{
 	console.log('i am connected');
 });
 var io=socket(server);
+io.on('connection',(socket)=>{
+      console.log('Gajjar I am calling for chat',socket.id);
+}); 
+/* basically above code te connection estalish thyu hoy to acknowlwdgement mate te thase*/
 ```
 **step 3:**
 in client side we apply two js file one is socket setup through cloudflare 
@@ -93,23 +97,3 @@ and another one is my custome code base in socket folder
 ```
 **Note:**
 when the server side setup the socket so that time server port number is important to set-up all of thing just like above 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
