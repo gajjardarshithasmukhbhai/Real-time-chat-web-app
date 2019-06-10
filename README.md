@@ -74,7 +74,7 @@ import the socketIo the package through require like ex.
 ```javascript
 var socket=require('socket.io');
 ```
-<br>
+
 **step 2:**
 in socket the server side set-up is imporatant thing
 so setup the server so you set-up just like that
@@ -86,7 +86,6 @@ var io=socket(server);
 ```
 **Note:**
 when the server side setup the socket so that time server port number is important to set-up all of thing just like above 
-
 
 
 
