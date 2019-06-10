@@ -13,7 +13,19 @@ step:2
 	localhost:5060
 ```
 ## Packages
-
+| npm package 			    | command		     			  | application                          |
+| --------------------------------- | ------------------------------------------- | ------------------------------------ |
+| anime     	    		    | npm install animejs                         | animation                            |
+| bcryptjs   	     		    | npm install bcryptjs                        | password encryption                  |
+| csurf     	     		    | npm install csurf                           | csrf token	                         |
+| express-session    		    | npm install express-session                 | session with cookie                  |
+| font-awesome       		    | npm install font-awesome                    | font styling                         |
+| nodemailer-sendgrid-transport     | npm install nodemailer-sendgrid-transport   | mail sending third party service     |
+| toastr   			    | npm install toastr                          | notification beautiful               |
+| body-parser     		    | npm install body-parser                     | take data                            |
+| mongodb    			    | npm install mongodb                         | mongodb database driver              |
+| Mdbootstrap   	            | npm install mdbootstarp                     | this bootstrap use for modern look design|
+| socket io	  	            | npm i socket.io	                          | this socket basically use for real time chat web-app with user|
 
 **in this web-app i learn lot**
 ---
