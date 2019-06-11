@@ -100,6 +100,30 @@ and another one is my custome code base in socket folder
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
 <script type="text/javascript" src="/socket/socket.js"></script>
 ```
+**step 4:**
+jyare client dra request send thai gai server jode jase and feedback rupe te data te avase
+ex.
+```javascript
+io.on('connection',(socket)=>{
+      console.log('Gajjar I am calling for chat',socket.id);
+      socket.on('chat',(data)=>{
+        console.log('->>>>',data);
+        io.sockets.emit('chat',data);
+      });
+    });  
+```
+emit dra te data te send karva mate te thase and emit(name you want to given,callback function avase)
+**step 5:**
+client-->server
+server-->client(->client dra data leva mate node js on method use thay che basically on method api mate pan te use thay che
+ex.
+```javascript
+socket.on('chat',(data)=>{
+data biju kai nai whole tamaro data che sever dra no
+});
+```
+
+
 **Note:**
 ```text
 ->when the server side setup the socket so that time server port number is important to set-up all of thing just like above
@@ -110,3 +134,4 @@ var x=document.getElementById('dsfgsfs');
 //and then after take data below like this some situation
 console.log(x.value);
 ```
+more information mate chat.js and index.js file te jovo
