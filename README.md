@@ -113,6 +113,7 @@ io.on('connection',(socket)=>{
     });  
 ```
 emit dra te data te send karva mate te thase and emit(name you want to given,callback function avase)
+
 **step 5:**
 client-->server
 server-->client(->client dra data leva mate node js on method use thay che basically on method api mate pan te use thay che
