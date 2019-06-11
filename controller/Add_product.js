@@ -48,6 +48,7 @@ exports.signup_enter_controller=(req,res,next)=>{
         signup.save()
         .then(resolve=>{
           req.session.loggedIn=true;
+          req.session.myuser=email;
           res.redirect('shop');
           let mailOptions={
               from:'darshit.gajjar1998@gmail.com',
@@ -269,6 +270,7 @@ exports.social_service_signup=(req,res,next)=>{
         signup.save()
         .then(resolve=>{
           req.session.loggedIn=true;
+          req.session.myuser=email;
           res.redirect('shop');
           let mailOptions={
               from:'darshit.gajjar1998@gmail.com',
@@ -502,7 +504,8 @@ exports.add_products_controller=(req,res,next)=>{
 		.then(resolve=>{
 			if(resolve){
 				console.log("gajju rock");
-				req.session.loggedIn=true;
+        req.session.loggedIn=true;
+        req.session.myuser=email;
 				res.redirect("/Add_product");//change res.redirect('Add_product');
 				let mailOptions={
 							from:'testing.gajjar1998@gmail.com',
@@ -806,6 +809,19 @@ exports.cart_show_controller=(req,res,next)=>{
     res.redirect('/');
     res.end();
   }	
+}
+exports.chat=(req,res,next)=>{
+  let myuser=req.session.myuser;
+  let shortname=myuser.split('@')[0];
+
+  
+  // if(loggedIn)
+  // {
+    res.render("chat",{myuser:shortname});
+  // }
+  // else{
+    // res.redirect("/");
+  // }
 }
 exports.products_controller=(req,res,next)=>{
 	res.redirect("/Shop");
