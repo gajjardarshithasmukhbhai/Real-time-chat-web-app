@@ -1,6 +1,9 @@
 const express=require('express');
 const app=express();
 const session=require('express-session');
+
+var socket=require('socket.io');
+
 const MongoDBStore=require('connect-mongodb-session')(session);
 const path=require('path');
 var csrf=require('csurf');
@@ -25,7 +28,7 @@ var mongoConnect=require('./util/database.js').mongoConnect;
 var products=require('./modal/all_file_data.js');//product data
 var User=require('./modal/user.js');
 var Cart=require('./modal/cart.js');//cart
-var port=process.env.PORT ||5060;
+// var port=process.env.PORT ||5060;
 app.set("view engine","pug");
 app.set("views","view");
 
@@ -34,13 +37,13 @@ var store = new MongoDBStore({
   collection: 'mySessions',
 });
 app.use(session({
-  secret:'Gajjar darshit Hasmukhbhai',/*any text given sigin time e hash code ma hash code rupe cookie ma te store te thase production ma long string hovi joie*/
-  resave:false,/*aa em batave upcoming req ma te session te save thato nathi*/
-  saveUninitialized:false,/*the session cookie will not be set on the browser unless the session is modified.*/
-  store:store,
-  // cookie:{
-  //  maxAge:50000,
-  // }
+	secret:'Gajjar darshit Hasmukhbhai',/*any text given sigin time e hash code ma hash code rupe cookie ma te store te thase production ma long string hovi joie*/
+	resave:false,/*aa em batave upcoming req ma te session te save thato nathi*/
+	saveUninitialized:false,/*the session cookie will not be set on the browser unless the session is modified.*/
+	store:store,
+	// cookie:{
+	// 	maxAge:50000,
+	// }
 }));
 
 
@@ -51,7 +54,7 @@ app.use(passportx.initialize());
 app.use(passportx.session());
 
 
-
+app.use("/socket",express.static(path.join(__dirname,"socketIo/")));
 app.use("/mdB",express.static(path.join(__dirname,"mdBootstrap/")));
 app.use("/md",express.static(path.join(__dirname,"MDBPro/")));
 app.use("/css",express.static(path.join(__dirname,"css/css/")));
@@ -62,9 +65,9 @@ app.use("/anime-js",express.static(path.join(__dirname,"node_modules/anime/")));
 app.use('/notification',express.static(path.join(__dirname,"node_modules/toastr/")));
 app.use(bodyParser.urlencoded({extended:true}));
 
-//social service
+//social service//Gajjar ready to rock or not
 app.get('/passport-google',passportx.authenticate('google',{
-  scope:['email'],
+	scope:['email'],
 }));
 app.get('/github',passportx.authenticate('github'));
 app.get('/instagramx',passportx.authenticate('instagram'));
@@ -77,6 +80,9 @@ app.get("/Admin_product/:id",csrfprotection,Admin_product.admin_edit_product_con
 app.post("/admin_product_update_data/:Id",csrfprotection,Admin_product.admin_update_product_controller);
 app.get("/Admin_delete_product/:iid",csrfprotection,Admin_product.admin_delete_product_controller);
 let sk=215;
+
+app.get("/chat",csrfprotection,add_product.chat);
+
 app.get("/signUp",signup.SignUp_controller);
 app.get("/order",csrfprotection,order.order_controller);
 app.get("/Add_product",csrfprotection,add_product.add_product_controller);
@@ -126,9 +132,9 @@ app.get('/instagram',
     res.redirect('/');
   });
 // app.use('/gajjurock',passportx.authenticate('google',{
-//  successRedirect: '/',failureRedirect: '/login' 
+// 	successRedirect: '/',failureRedirect: '/login' 
 // },(req,res,next)=>{
-//  res.redirect('/');
+// 	res.redirect('/');
 // }));
 
 app.get("/product",csrfprotection,product.products_controller);
@@ -138,9 +144,21 @@ app.get("/shop",csrfprotection,shop.shop_controller);
 
 app.get("/",home.home_controller);
 app.use((req,res,next)=>{
-  res.status(404).render("404",{error:"url is wrong"});
+	res.status(404).render("404",{error:"url is wrong"});
 })
+var port=process.env.PORT ||4040;
+var server;
 mongoConnect(() => {
-    app.listen(port, (wer) => console.log("i am new"));
+    server=app.listen(port, (wer) => console.log("i am new"));
+    var io=socket(server);
+    console.log(io);  
+    io.on('connection',(socket)=>{
+      console.log('Gajjar I am calling for chat',socket.id);
+      socket.on('chat',(data)=>{
+        console.log('->>>>',data);
+        io.sockets.emit('chat',data);
+      });
+    });  
 });
-//fake emailId:-cismox.darshit@gmail.com
+
+
