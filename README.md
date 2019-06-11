@@ -92,6 +92,7 @@ io.on('connection',(socket)=>{
 i set-up socket in client side just like this
 ```javascript
 var socket=io.connect('http://localhost:4040/chat');
+/*but when put in production ready so that time it change*/
 ```
 in client side we apply two js file one is socket setup through cloudflare 
 and another one is my custome code base in socket folder
@@ -100,4 +101,12 @@ and another one is my custome code base in socket folder
 <script type="text/javascript" src="/socket/socket.js"></script>
 ```
 **Note:**
-when the server side setup the socket so that time server port number is important to set-up all of thing just like above 
+```text
+->when the server side setup the socket so that time server port number is important to set-up all of thing just like above
+->wwhen you want to take value of dom so that time you not take directly all cases just like
+```
+```javascript
+var x=document.getElementById('dsfgsfs');
+//and then after take data below like this some situation
+console.log(x.value);
+```
