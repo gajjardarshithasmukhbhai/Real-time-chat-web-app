@@ -38,7 +38,9 @@ exports.signup_enter_controller=(req,res,next)=>{
   .then(users=>{
     if(users.length==0)
     {
-        if(email!=null && password.length>5 && password==retype)
+          let wd = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+
+        if(wd.test(email) && (password.length>5 && password===retype))
   {
     console.log("hasmukh Gajjar");
     return bcrypt.hash(password,12)
@@ -453,7 +455,7 @@ exports.social_service_signup=(req,res,next)=>{
     }
     else{
           console.log("gajjar darshit hasmukhbhai");
-        res.render("signup",{show:"your password is minimu 5 character"});
+        res.render("signup",{show:"your password is minimu 5 character or your email adress is wrong"});
     }  
     }
     else{
