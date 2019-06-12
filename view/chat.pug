@@ -98,21 +98,28 @@
                             {
                           youuu.innerHTML+='<div class="bubble you">'+'<p style="color:red;margin-left:0px;">'+data.message+'</p>'+
                           `<img src='${data.user}' style="margin-left:0px;width:200px;height:110px;"/>`+'</div>';
+                          y.value='';
                         }
                         else{
 
                           me.innerHTML+='<div class="bubble me">'+'<p style="color:green;margin-left:0px;">'+data.message+'</p>'+
                           `<img src='${data.user}' style="color:green;margin-left:0px;width:200px;height:110px;"/>`+'</div>';
+                          y.value='';
+
                         }
                         }
                         else{
                           if(data.user!=y.value){
                           youuu.innerHTML+='<div class="bubble you">'+'<p style="color:red;margin-left:0px;">'+data.message+'</p>'+
                           '<p>'+data.user+'</p>'+'</div>';
+                          y.value='';
+
                         }
                         else{
                           me.innerHTML+='<div class="bubble me">'+'<p style="color:green;margin-left:0px;">'+data.message+'</p>'+
                           '<p>'+data.user+'</p>'+'</div>';
+                          y.value='';
+                          
                         }
                         }
                         
