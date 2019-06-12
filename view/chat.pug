@@ -91,14 +91,31 @@
                         }
 
                         socket.on('chat',(data)=>{
-                        if(data.user!=y.value){
-                          youuu.innerHTML+='<div class="bubble you">'+'<p style="color:green;margin-left:0px;">'+data.message+'</p>'+
+                        let lkj=data.user.indexOf('https');
+                        console.log(data.message,'->',data.user);
+                        if(lkj==0){
+                           if(data.user!=y.value)
+                            {
+                          youuu.innerHTML+='<div class="bubble you">'+'<p style="color:red;margin-left:0px;">'+data.message+'</p>'+
+                          `<img src='${data.user}' style="margin-left:0px;width:200px;height:110px;"/>`+'</div>';
+                        }
+                        else{
+
+                          me.innerHTML+='<div class="bubble me">'+'<p style="color:green;margin-left:0px;">'+data.message+'</p>'+
+                          `<img src='${data.user}' style="color:green;margin-left:0px;width:200px;height:110px;"/>`+'</div>';
+                        }
+                        }
+                        else{
+                          if(data.user!=y.value){
+                          youuu.innerHTML+='<div class="bubble you">'+'<p style="color:red;margin-left:0px;">'+data.message+'</p>'+
                           '<p>'+data.user+'</p>'+'</div>';
                         }
                         else{
-                          me.innerHTML+='<div class="bubble me">'+'<p style="color:red;margin-left:0px;">'+data.message+'</p>'+
+                          me.innerHTML+='<div class="bubble me">'+'<p style="color:green;margin-left:0px;">'+data.message+'</p>'+
                           '<p>'+data.user+'</p>'+'</div>';
                         }
+                        }
+                        
                           
                         });
                 </div>
