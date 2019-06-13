@@ -60,10 +60,8 @@
       <center>
       <div class="text-white text-center d-flex align-items-center rgba-black-strong py-5 px-4">
         <div>
-            <h5 class="text " style="font-size: 20px;font-weight: 400;color: white;margin-left: 120px;">Live chat Mr.Darshit system</h5>  
+            <h5 class="text " style="font-size: 20px;font-weight: 400;color: white;margin-left: 100px;">Live chat Mr.Darshit system</h5>  
             <div class="chat">
-              <div id="me">
-              </div>
               <div  id="youuu">
               </div>
               
@@ -71,8 +69,8 @@
               <!-- <form > -->
                 <div class="md-form">           
                     <input type="text" class="form-control gff"  rows="1" placeholder="Message" id="data" style="color: white;font-size: 20px;">
-                      <button onclick="myfunction();" style="margin-left: -110px;border-radius: 50%;" class="btn btn-primary">send</button>
-                      <button type="reset" style="margin-left: 0px;border-radius: 50%;" class="btn btn-secondary">cancel</button>
+                      <button onclick="myfunction();" style="margin-left: -110px;border-radius: 50%;font-size:15px;font-family:Arial;font-weight:400;" class="btn btn-primary" disable>send</button>
+                      <button type="reset" style="margin-left: 0px;border-radius: 50%;font-size:15px;font-family:Arial;font-weight:400;" class="btn btn-secondary" onclick="cancel();">cancel</button>
                        script.
                         var socket=io.connect('https://xemzom-chatting.herokuapp.com/');
                         var x=`#{myuser}`;
@@ -82,6 +80,11 @@
                         var handleuser=document.getElementById('user');
 
                         //function
+                        function cancel()
+                        {
+                          y.value='';
+
+                        }
                         function myfunction(){
                           console.log(x.value,y.value);
                           socket.emit('chat',{
@@ -102,7 +105,7 @@
                         }
                         else{
 
-                          me.innerHTML+='<div class="bubble me">'+'<p style="color:green;margin-left:0px;">'+data.message+'</p>'+
+                          youuu.innerHTML+='<div class="bubble me">'+'<p style="color:green;margin-left:0px;">'+data.message+'</p>'+
                           `<img src='${data.user}' style="color:green;margin-left:0px;width:200px;height:110px;"/>`+'</div>';
                           y.value='';
 
@@ -116,7 +119,7 @@
 
                         }
                         else{
-                          me.innerHTML+='<div class="bubble me">'+'<p style="color:green;margin-left:0px;">'+data.message+'</p>'+
+                          youuu.innerHTML+='<div class="bubble me">'+'<p style="color:green;margin-left:0px;">'+data.message+'</p>'+
                           '<p>'+data.user+'</p>'+'</div>';
                           y.value='';
                           
