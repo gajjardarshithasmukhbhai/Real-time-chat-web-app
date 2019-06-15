@@ -17,9 +17,9 @@ passport.use(new GoogleStrategy({
 ));
 
 passport.use(new GitHubStrategy({
-    clientID: "c03d795015e41188f002",
-    clientSecret: "f7a934f57da88988bfca38cc98c6ba6847263f05",
-    callbackURL: "https://xemzom.herokuapp.com/gajjurocks",
+    clientID: "0bd1e43f983e6c6c2ac7",
+    clientSecret: "63b41b791e926001b53ffeb6b09c66b84370c22b",
+    callbackURL: "https://xemzom-chatting.herokuapp.com/gajjurocks",
     scope:['user:email'],
   },
   (accessToken, refreshToken, profile, ck)=>{
@@ -33,12 +33,10 @@ passport.use(new GitHubStrategy({
   }
 ));
 passport.use(new InstagramStrategy({
-    clientID: "c8674cab77a744d9bc2fa7fb060e37bb",
-    clientSecret: "04be5ff8682e442ca3961be9322b2347",
-    callbackURL: "https://xemzom.herokuapp.com/instagram",
+    clientID: "00d7b8a48dd540bca6210cdd38631b0f",
+    clientSecret: "6f24e4e6a2d4463291f0d4f0e6c33bcf",
+    callbackURL: "https://xemzom-chatting.herokuapp.com/instagram",
     // scope:['email'],
-
-
   },
   (accessToken, refreshToken, profile, ck)=>{
     exports.emailID=profile.provider;
